@@ -1,6 +1,10 @@
 import { FiPlus } from "react-icons/fi";
 import Stats from "./components/Stats";
 import { Suspense } from "react";
+import Friends from "./components/Friends";
+
+const fetchData = fetch('/data/friends.json')
+  .then(response => response.json());
 
 export default function Home() {
   return (
@@ -31,6 +35,9 @@ export default function Home() {
       {/* main game starts here */}
       <div>
         <p className="text-2xl font-bold text-black">Your Friends</p>
+        <div>
+<Friends friends={fetchData} />
+        </div>
       </div>
       </div>
     </div>
