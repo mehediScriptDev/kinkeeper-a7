@@ -17,7 +17,7 @@ const Navbar = () => {
         </Link>
       </li>
       <li>
-        <Link href="/timeline">
+        <Link href="/timeline" className={path === "/timeline" ? "bg-[#244D3F] text-white" : ""}>
           {" "}
           <GoClock />
           Timeline
@@ -36,7 +36,7 @@ const Navbar = () => {
 
   return (
     <div className="shadow-sm bg-white">
-      <div className="navbar max-w-7xl mx-auto ">
+      <div className="navbar w-11/12 mx-auto ">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost text-black lg:hidden">

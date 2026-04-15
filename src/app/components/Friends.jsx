@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import React, { use } from "react";
+import React, { Suspense, use } from "react";
 
 const Friends = ({ friends }) => {
    
@@ -20,7 +20,7 @@ const Friends = ({ friends }) => {
             color = "bg-[#244D3F]";
     }
         return (
-          <Link href={`/${friend.id}`}>
+            <Link key={friend.id} href={`/${friend.id}`}>
             <div key={friend.id} className="card flex flex-col justify-center items-center text-black shadow p-4 md:p-6 bg-white">
               <Image
                 className="rounded-full"
@@ -34,6 +34,7 @@ const Friends = ({ friends }) => {
             <p className="text-[#244D3F] space-x-1 mb-2 text-xs">{friend.tags.map(tag=> <span className="bg-[#CBFADB] px-2 py-0.5 rounded-full" key={tag}>{tag}</span>)}</p>
             <p className={`text-xs px-2 py-0.5 rounded-full text-white ${color}`}>{friend.status}</p>
           </div></Link>
+         
         );
       })}
     </div>

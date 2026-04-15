@@ -1,10 +1,28 @@
 "use client"
-import React, { use } from 'react';
+import React, { useEffect, useState } from 'react';
 
-
-const dummyStatsData = fetch('/data/stats.json').then(res=>res.json())
 const Stats = () => {
-    const data = use(dummyStatsData);
+    const [data, setData] = useState(null);
+
+    useEffect(() => {
+        let mounted = true;
+        fetch('/data/stats.json')
+            .then((res) => res.json())
+            .then((json) => {
+                if (mounted) setData(json);
+            })
+            .catch(() => {
+                if (mounted) setData([]);
+            });
+        return () => {
+            mounted = false;
+        };
+    }, []);
+
+    if (!data) {
+        return <div className="text-center py-8">Loading...</div>;
+    }
+
     return (
         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 items-center gap-4 lg:gap-6'>
             {data.map(card=>{

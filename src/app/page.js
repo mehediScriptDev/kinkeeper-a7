@@ -3,10 +3,9 @@ import { FiPlus } from "react-icons/fi";
 import Stats from "./components/Stats";
 import { Suspense } from "react";
 import Friends from "./components/Friends";
+import friendsJson from "../../public/data/friends.json";
 
-const fetchData = fetch("/data/friends.json").then((response) =>
-  response.json(),
-);
+const fetchData = Promise.resolve(friendsJson);
 
 export default function Home() {
   return (
@@ -38,7 +37,9 @@ export default function Home() {
         <div>
           <p className="text-2xl font-bold text-black mb-4">Your Friends</p>
           <div>
-            <Friends friends={fetchData} />
+            <Suspense fallback={<span className="loading loading-spinner loading-xl"></span>}>
+              <Friends friends={fetchData} />
+            </Suspense>
           </div>
         </div>
       </div>
