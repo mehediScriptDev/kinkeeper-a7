@@ -24,7 +24,7 @@ const Navbar = () => {
         </Link>
       </li>
       <li>
-        <Link href="/stats">
+        <Link href="/stats" className={path === "/stats" ? "bg-[#244D3F] text-white" : ""}>
           <MdQueryStats />
           Stats
         </Link>
