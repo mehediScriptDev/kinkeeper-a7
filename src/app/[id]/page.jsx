@@ -6,6 +6,7 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import { BiSolidPhoneCall } from "react-icons/bi";
 import { MdOutlineTextsms } from "react-icons/md";
 import { MdOutlineVideocam } from "react-icons/md";
+import RelationshipButtons from "../components/RelationshipButtons";
 
 const page = async ({ params }) => {
   const { id } = await params;
@@ -123,21 +124,7 @@ const page = async ({ params }) => {
               <h1 className="text-xl text-[#244D3F] font-medium mb-5">
                 Relationship Goal
               </h1>
-
-              <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 xl:gap-8 w-full">
-                <div className="bg-[#F8FAFC] w-full border border-[#E9E9E9] rounded-xl shadow flex flex-col items-center justify-center p-4">
-                  <BiSolidPhoneCall className="w-6 h-6 text-[#1F2937] mb-2.5 md:w-8 md:h-8" />
-                  <p className="text-lg text-[#1F2937] text-center">Call</p>
-                </div>
-                <div className="bg-[#F8FAFC] w-full border border-[#E9E9E9] rounded-xl shadow flex flex-col items-center justify-center p-4">
-                  <MdOutlineTextsms className="w-6 h-6 text-[#1F2937] mb-2.5 md:w-8 md:h-8" />
-                  <p className="text-lg text-[#1F2937] text-center">Text</p>
-                </div>
-                <div className="bg-[#F8FAFC] w-full border border-[#E9E9E9] rounded-xl shadow flex flex-col items-center justify-center p-4">
-                  <MdOutlineVideocam  className="w-6 h-6 text-[#1F2937] mb-2.5 md:w-8 md:h-8" />
-                  <p className="text-lg text-[#1F2937] text-center">Call</p>
-                </div>
-              </div>
+              <RelationshipButtons friend={friend} />
             </div>
           </div>
         </div>
